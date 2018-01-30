@@ -26,6 +26,7 @@
   NSString *defaultCountryCode = [options objectForKey:@"defaultCountryCode"];
   BOOL facebookNotificationsEnabled = [[options objectForKey:@"facebookNotificationsEnabled"] boolValue];
   NSArray *initialPhoneNumber = [options objectForKey:@"initialPhoneNumber"];
+  NSDictionary *theme = [options objectForKey:@"theme"];
   if ([initialPhoneNumber count] == 2) {
     preFillPhoneNumber = [[AKFPhoneNumber alloc]initWithCountryCode:[initialPhoneNumber objectAtIndex:0]
                                                         phoneNumber:[initialPhoneNumber objectAtIndex:1]];
@@ -38,6 +39,7 @@
   [vc loginWithPhoneNumber:preFillPhoneNumber
         defaultCountryCode:defaultCountryCode
       enableSendToFacebook:facebookNotificationsEnabled
+                     theme:theme
                   callback:command.callbackId];
 }
 
@@ -48,6 +50,7 @@
   NSString *defaultCountryCode = [options objectForKey:@"defaultCountryCode"];
   BOOL facebookNotificationsEnabled = [[options objectForKey:@"facebookNotificationsEnabled"] boolValue];
   NSString *initialEmail = [options objectForKey:@"initialEmail"];
+  NSDictionary *theme = [options objectForKey:@"theme"];
 
   _responseType = useAccessToken ? AKFResponseTypeAccessToken: AKFResponseTypeAuthorizationCode;
   _accountKit = [[AKFAccountKit alloc] initWithResponseType:_responseType];
@@ -56,6 +59,7 @@
   [vc loginWithEmailAddress:initialEmail
          defaultCountryCode:defaultCountryCode
        enableSendToFacebook:facebookNotificationsEnabled
+                      theme:theme
                    callback:command.callbackId];
 }
 

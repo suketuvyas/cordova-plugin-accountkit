@@ -11,10 +11,12 @@
 - (void)loginWithPhoneNumber:(AKFPhoneNumber *)preFillPhoneNumber
           defaultCountryCode:(NSString *)defaultCountryCode
         enableSendToFacebook:(BOOL)facebookNotificationsEnabled
+                       theme:(NSDictionary *)theme
                     callback:(NSString *)callbackId;
 - (void)loginWithEmailAddress:(NSString *)preFillEmailAddress
            defaultCountryCode:(NSString *)defaultCountryCode
          enableSendToFacebook:(BOOL)facebookNotificationsEnabled
+                        theme:(NSDictionary *)theme
                      callback:(NSString *)callbackId;
 
 @end
